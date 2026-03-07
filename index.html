@@ -1,89 +1,120 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<title>Jaeyong Kim | AI Researcher</title>
-<link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Jaeyong Kim | AI Researcher</title>
+  <link rel="stylesheet" href="style.css" />
 </head>
-
 <body>
+  <header class="topbar">
+    <div class="topbar-inner">
+      <div class="site-title">Jaeyong Kim</div>
+      <nav class="nav">
+        <a href="#about">About</a>
+        <a href="#projects">Projects</a>
+        <a href="#publications">Publications</a>
+        <a href="#contact">Contact</a>
+        <a href="#">CV</a>
+      </nav>
+    </div>
+  </header>
 
-<header>
-  <h1>Jaeyong Kim</h1>
-  <p>AI Researcher | Simulation | Human Pose Modeling | Fall Risk Prediction</p>
+  <main class="container">
+    <aside class="sidebar">
+      <div class="profile-card">
+        <div class="profile-image">
+          <img src="assets/profile.jpg" alt="Profile photo" />
+        </div>
 
-  <div class="links">
-    <a href="https://github.com/YOUR_GITHUB">GitHub</a>
-    <a href="#">Google Scholar</a>
-    <a href="#">CV</a>
-  </div>
-</header>
+        <h1 class="name">Jaeyong Kim</h1>
+        <p class="role">AI Researcher</p>
+        <p class="affiliation">Kwangwoon University</p>
 
+        <div class="sidebar-links">
+          <a href="mailto:evejaeyong@kw.ac.kr">Email</a>
+          <a href="https://github.com/evejaeyong" target="_blank">GitHub</a>
+          <a href="#">Google Scholar</a>
+          <a href="#">CV</a>
+        </div>
+      </div>
+    </aside>
 
-<section>
-<h2>About</h2>
-<p>
-I am an AI researcher interested in simulation-based learning, human pose modeling, 
-and AI for healthcare. My recent work focuses on predicting fall-from-bed risks 
-using physics-based simulation and skeleton-based machine learning models.
-</p>
-</section>
+    <section class="content">
+      <section id="about" class="content-section">
+        <h2>About Me</h2>
+        <p>
+          I am an AI researcher interested in simulation-based learning, large language models,
+          reinforcement learning, and agent AI. My recent work focuses on predicting
+          fall-from-bed risks using physics-based simulation and skeleton-based machine learning models.
+        </p>
+        <p>
+          More broadly, I am interested in building practical AI systems that connect
+          simulation, decision-making, and real-world healthcare applications.
+        </p>
+      </section>
 
+      <section class="content-section">
+        <h2>Research Interests</h2>
+        <ul>
+          <li>Simulation-based Learning</li>
+          <li>Physical AI</li>
+          <li>Large Language Models</li>
+          <li>Reinforcement Learning</li>
+          <li>Agent AI</li>
+        </ul>
+      </section>
 
-<section>
-<h2>Research Interests</h2>
-<ul>
-<li>Simulation-based learning</li>
-<li>Human pose analysis</li>
-<li>Physical AI</li>
-<li>Graph neural networks</li>
-</ul>
-</section>
+      <section id="projects" class="content-section">
+        <h2>Selected Projects</h2>
 
+        <div class="project-item">
+          <h3>Fall-from-Bed Risk Prediction</h3>
+          <p class="project-meta">Physics-based simulation / Skeleton-based ML / Healthcare AI</p>
+          <p>
+            Developed a physics-based simulation framework for predicting fall risk
+            from static human posture on a bed. Evaluated multiple models including
+            RF, CNN, and GCN to analyze how much predictive signal can be extracted
+            from initial posture alone.
+          </p>
+        </div>
 
-<section>
-<h2>Selected Projects</h2>
+        <div class="project-item">
+          <h3>Skeleton-based Risk Modeling</h3>
+          <p class="project-meta">Graph representation / Coordinate-based learning</p>
+          <p>
+            Investigated machine learning models trained on joint coordinate
+            representations to estimate fall risk. Focused on representation quality,
+            generalization, and the limitations of static pose-based prediction.
+          </p>
+        </div>
 
-<div class="project">
-<h3>Fall-from-Bed Risk Prediction</h3>
-<p>
-Physics-based simulation framework for predicting fall risk from static human posture.
-Evaluated multiple models including RF, CNN, and GCN.
-</p>
-</div>
+        <div class="project-item">
+          <h3>LLM-based Healthcare Documentation Support</h3>
+          <p class="project-meta">LLM / Structured event generation / Clinical workflow</p>
+          <p>
+            Explored the use of large language models for converting structured
+            patient-state information into natural clinical log-style text, with an emphasis
+            on reliability, validation, and safe generation.
+          </p>
+        </div>
+      </section>
 
-<div class="project">
-<h3>Skeleton-based Risk Modeling</h3>
-<p>
-Machine learning models trained on joint coordinate representations to estimate fall risk.
-</p>
-</div>
+      <section id="publications" class="content-section">
+        <h2>Publications</h2>
 
-</section>
+        <div class="publication-item">
+          <h3>Fall-from-Bed Risk Prediction from Static Initial Posture</h3>
+          <p>MDPI Sensors (Under Review)</p>
+        </div>
+      </section>
 
-
-<section>
-<h2>Publications</h2>
-
-<p>
-<strong>Fall-from-Bed Risk Prediction from Static Initial Posture</strong><br>
-MDPI Sensors (Under Review)
-</p>
-
-</section>
-
-
-<section>
-<h2>Contact</h2>
-
-<p>Email: your_email@example.com</p>
-
-</section>
-
-
-<footer>
-<p>© 2026 Jaeyong Kim</p>
-</footer>
-
+      <section id="contact" class="content-section">
+        <h2>Contact</h2>
+        <p>Email: <a href="mailto:evejaeyong@kw.ac.kr">evejaeyong@kw.ac.kr</a></p>
+        <p>GitHub: <a href="https://github.com/evejaeyong" target="_blank">github.com/evejaeyong</a></p>
+      </section>
+    </section>
+  </main>
 </body>
 </html>
