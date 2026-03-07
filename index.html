@@ -1,120 +1,219 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ko">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Jaeyong Kim | AI Researcher</title>
-  <link rel="stylesheet" href="style.css" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio | Jaeyong Kim (M.S. Student)</title>
+    
+    <!-- Tailwind CSS (CDN 방식으로 단일 파일 내에서 스타일링 해결) -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- 아이콘을 위한 Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- 깔끔하고 가독성 좋은 폰트 (Pretendard & Inter) -->
+    <link rel="stylesheet" as="style" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css" />
+    
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Pretendard', 'sans-serif'],
+                    },
+                    colors: {
+                        // 더 진하고 무게감 있는 다크 네이비 테마
+                        brand: {
+                            50: '#f0f4f8',
+                            100: '#dbeafe',
+                            500: '#1d4ed8', // 묵직한 블루
+                            600: '#1e40af', // 포인트 다크 블루
+                            800: '#0f172a', // 어두운 슬레이트/네이비
+                            900: '#0a192f', // 메인 다크 네이비 (사이드바 배경)
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    
+    <style>
+        /* 기본 스크롤바 스타일링 및 부드러운 전환 효과 */
+        html { scroll-behavior: smooth; }
+        body { -webkit-font-smoothing: antialiased; }
+        
+        .nav-link {
+            transition: all 0.2s ease-in-out;
+            border-left: 3px solid transparent;
+        }
+        .nav-link:hover, .nav-link.active {
+            background-color: rgba(255, 255, 255, 0.1);
+            border-left-color: #60a5fa; /* 포인트 컬러 */
+            padding-left: 1.5rem;
+        }
+    </style>
 </head>
-<body>
-  <header class="topbar">
-    <div class="topbar-inner">
-      <div class="site-title">Jaeyong Kim</div>
-      <nav class="nav">
-        <a href="#about">About</a>
-        <a href="#projects">Projects</a>
-        <a href="#publications">Publications</a>
-        <a href="#contact">Contact</a>
-        <a href="#">CV</a>
-      </nav>
+<body class="bg-brand-50 text-gray-800 flex flex-col md:flex-row min-h-screen">
+
+    <!-- 모바일 환경을 위한 상단 네비게이션 토글 버튼 (데스크탑에선 숨김) -->
+    <div class="md:hidden bg-brand-900 text-white p-4 flex justify-between items-center shadow-md z-20">
+        <div class="font-bold text-lg">Jaeyong Kim</div>
+        <button id="mobile-menu-btn" class="focus:outline-none">
+            <i class="fas fa-bars text-2xl"></i>
+        </button>
     </div>
-  </header>
 
-  <main class="container">
-    <aside class="sidebar">
-      <div class="profile-card">
-        <div class="profile-image">
-          <img src="assets/profile.jpg" alt="Profile photo" />
+    <!-- 좌측 사이드바 (프로필 및 네비게이션) -->
+    <aside id="sidebar" class="w-full md:w-72 lg:w-80 bg-brand-900 text-white flex-shrink-0 hidden md:flex flex-col shadow-2xl z-10 sticky top-0 md:h-screen overflow-y-auto transition-all duration-300">
+        <div class="p-8 flex flex-col items-center border-b border-brand-800">
+            <!-- 프로필 이미지 -->
+            <div class="w-32 h-32 rounded-full overflow-hidden border-4 border-brand-500 mb-4 shadow-lg bg-white">
+                <!-- 실제 사용 시 src를 본인 사진으로 변경하세요 -->
+                <img src="fig/jaeyong.jpg" alt="Profile Picture" class="w-full h-full object-cover">
+            </div>
+            <h1 class="text-2xl font-bold mb-1 tracking-wide">Jaeyong Kim</h1>
+            <p class="text-brand-100 text-sm mb-4 text-center">M.S. Student</p>
+            
+            <p class="text-sm text-center text-gray-300 mb-2">
+                <i class="fas fa-graduation-cap mr-2"></i>Computer Engineering
+            </p>
+            <p class="text-sm text-center text-gray-300 mb-6">
+                <i class="fas fa-university mr-2"></i>Kwangwoon University
+            </p>
+
+            <!-- 소셜/연락처 링크 -->
+            <div class="flex gap-4 text-brand-100">
+                <a href="mailto:evejaeyong@kw.ac.kr" class="hover:text-white transition-colors" title="Email"><i class="fas fa-envelope text-xl"></i></a>
+                <a href="#" class="hover:text-white transition-colors" title="Google Scholar"><i class="fas fa-graduation-cap text-xl"></i></a>
+                <a href="github.com/evejaeyong" class="hover:text-white transition-colors" title="GitHub"><i class="fab fa-github text-xl"></i></a>
+                <a href="#" class="hover:text-white transition-colors" title="LinkedIn"><i class="fab fa-linkedin text-xl"></i></a>
+            </div>
         </div>
 
-        <h1 class="name">Jaeyong Kim</h1>
-        <p class="role">AI Researcher</p>
-        <p class="affiliation">Kwangwoon University</p>
-
-        <div class="sidebar-links">
-          <a href="mailto:evejaeyong@kw.ac.kr">Email</a>
-          <a href="https://github.com/evejaeyong" target="_blank">GitHub</a>
-          <a href="#">Google Scholar</a>
-          <a href="#">CV</a>
-        </div>
-      </div>
+        <!-- 네비게이션 메뉴 -->
+        <nav class="flex-1 py-6 flex flex-col">
+            <a href="index.html" class="nav-link active px-8 py-3 text-white font-medium flex items-center">
+                <i class="fas fa-user w-6"></i> About Me
+            </a>
+            <a href="#publications" class="nav-link px-8 py-3 text-brand-100 hover:text-white font-medium flex items-center">
+                <i class="fas fa-book w-6"></i> Publications
+            </a>
+            <a href="#projects" class="nav-link px-8 py-3 text-brand-100 hover:text-white font-medium flex items-center">
+                <i class="fas fa-code w-6"></i> Projects
+            </a>
+            <a href="#cv" class="nav-link px-8 py-3 text-brand-100 hover:text-white font-medium flex items-center">
+                <i class="fas fa-file-alt w-6"></i> CV / Resume
+            </a>
+        </nav>
     </aside>
 
-    <section class="content">
-      <section id="about" class="content-section">
-        <h2>About Me</h2>
-        <p>
-          I am an AI researcher interested in simulation-based learning, large language models,
-          reinforcement learning, and agent AI. My recent work focuses on predicting
-          fall-from-bed risks using physics-based simulation and skeleton-based machine learning models.
-        </p>
-        <p>
-          More broadly, I am interested in building practical AI systems that connect
-          simulation, decision-making, and real-world healthcare applications.
-        </p>
-      </section>
+    <!-- 우측 메인 콘텐츠 영역 -->
+    <main class="flex-1 bg-white md:rounded-l-[2rem] shadow-[-10px_0_15px_-3px_rgba(0,0,0,0.1)] z-0 relative">
+        <div class="max-w-4xl mx-auto p-8 md:p-12 lg:p-16">
+            
+            <!-- About Me 섹션 -->
+            <section id="about" class="mb-16">
+                <h2 class="text-3xl font-bold text-brand-900 mb-6 pb-2 border-b-2 border-brand-100 flex items-center">
+                     About Me
+                </h2>
+                <div class="prose prose-lg text-gray-600 leading-relaxed">
+                    <p class="mb-4">
+                        Hello! I am <strong>Jaeyong Kim</strong>, a Master's student in the Bio Computing and Machine Learning Lab (BCML Lab) at the Department of Computer engineering, Kwangwoon University. 
+                        Under the supervision of <a href="https://bcml.kw.ac.kr/" class="text-brand-600 hover:underline">Prof. Park</a>, my research focuses on ~~~.
+                    </p>
+                    <p class="mb-4">
+                        
+                    </p>
+                </div>
+            </section>
 
-      <section class="content-section">
-        <h2>Research Interests</h2>
-        <ul>
-          <li>Simulation-based Learning</li>
-          <li>Physical AI</li>
-          <li>Large Language Models</li>
-          <li>Reinforcement Learning</li>
-          <li>Agent AI</li>
-        </ul>
-      </section>
+            <!-- Research Interests 섹션 -->
+            <section id="interests" class="mb-16">
+                <h2 class="text-2xl font-bold text-brand-900 mb-6 pb-2 border-b border-brand-100">
+                    Research Interests
+                </h2>
+                <div class="flex flex-wrap gap-3">
+                    <span class="bg-brand-50 text-brand-800 px-4 py-2 rounded-full text-sm font-medium border border-brand-200 shadow-sm">Large Language Models (LLM)</span>
+                    <span class="bg-brand-50 text-brand-800 px-4 py-2 rounded-full text-sm font-medium border border-brand-200 shadow-sm">Sim2real</span>
+                    <span class="bg-brand-50 text-brand-800 px-4 py-2 rounded-full text-sm font-medium border border-brand-200 shadow-sm">Agent AI</span>
+                </div>
+            </section>
 
-      <section id="projects" class="content-section">
-        <h2>Selected Projects</h2>
+            <!-- News 섹션 -->
+            <section id="news" class="mb-16">
+                <h2 class="text-2xl font-bold text-brand-900 mb-6 pb-2 border-b border-brand-100">
+                    News
+                </h2>
+                <div class="space-y-4">
+                    <!-- 뉴스 아이템 -->
+                    <div class="flex flex-col sm:flex-row sm:items-baseline border-l-4 border-brand-500 pl-4 py-1">
+                        <span class="text-sm font-semibold text-brand-600 w-32 flex-shrink-0">Mar 2026</span>
+                        <p class="text-gray-700"></p>
+                    </div>
+                    <div class="flex flex-col sm:flex-row sm:items-baseline border-l-4 border-brand-200 pl-4 py-1">
+                        <span class="text-sm font-semibold text-gray-500 w-32 flex-shrink-0">Nov 2025</span>
+                        <p class="text-gray-700"></p>
+                    </div>
+                    <div class="flex flex-col sm:flex-row sm:items-baseline border-l-4 border-brand-200 pl-4 py-1">
+                        <span class="text-sm font-semibold text-gray-500 w-32 flex-shrink-0">Aug 2025</span>
+                        <p class="text-gray-700">Graduated with Honors with a B.S. in Computer Information Engineering from Kwangwoon University</p>
+                    </div>
+                </div>
+            </section>
 
-        <div class="project-item">
-          <h3>Fall-from-Bed Risk Prediction</h3>
-          <p class="project-meta">Physics-based simulation / Skeleton-based ML / Healthcare AI</p>
-          <p>
-            Developed a physics-based simulation framework for predicting fall risk
-            from static human posture on a bed. Evaluated multiple models including
-            RF, CNN, and GCN to analyze how much predictive signal can be extracted
-            from initial posture alone.
-          </p>
+            <!-- Education 섹션 -->
+            <section id="education" class="mb-8">
+                <h2 class="text-2xl font-bold text-brand-900 mb-6 pb-2 border-b border-brand-100">
+                    Education
+                </h2>
+                <div class="relative border-l border-gray-200 ml-3 space-y-8">
+                    
+                    <!-- 학력 아이템 1 -->
+                    <div class="relative pl-8">
+                        <div class="absolute w-4 h-4 bg-brand-500 rounded-full -left-[8.5px] top-1.5 border-4 border-white shadow"></div>
+                        <h3 class="text-lg font-bold text-gray-800">M.S. in Computer Engineering</h3>
+                        <p class="text-brand-600 font-medium text-sm mb-2">KwangwoonUniversity</p>
+                        <p class="text-sm text-gray-500 mb-2"><i class="far fa-calendar-alt mr-1"></i> Sep 2025 - Present</p>
+                        <ul class="list-disc list-inside text-gray-600 text-sm space-y-1">
+                            <li>Advisor: Prof. Park (BCML Lab)</li>
+                            <li>Focus: Sim2real & Large Language Model</li>
+                        </ul>
+                    </div>
+
+                    <!-- 학력 아이템 2 -->
+                    <div class="relative pl-8">
+                        <div class="absolute w-4 h-4 bg-gray-300 rounded-full -left-[8.5px] top-1.5 border-4 border-white"></div>
+                        <h3 class="text-lg font-bold text-gray-800">B.S. in Computer Information Engineering</h3>
+                        <p class="text-gray-600 font-medium text-sm mb-2">Kwangwoon University</p>
+                        <p class="text-sm text-gray-500 mb-2"><i class="far fa-calendar-alt mr-1"></i> Mar 2022 - Aug 2025</p>
+                        <ul class="list-disc list-inside text-gray-600 text-sm space-y-1">
+                            <li>Graduation Project: "Video-Audio Multimodal Infant Cry detection" (with EMMA Healthcare Corporation)</li>
+                            <li>GPA: 3.67 / 4.5</li>
+                            <li>Major GPA: 4.15 / 4.5</li>
+                        </ul>
+                    </div>
+
+                </div>
+            </section>
+            
+            <!-- 푸터 -->
+            <footer class="mt-20 border-t border-gray-100 pt-8 text-center text-sm text-gray-400">
+                <p>&copy; 2026 Jaeyong Kim. All rights reserved.</p>
+            </footer>
+
         </div>
+    </main>
 
-        <div class="project-item">
-          <h3>Skeleton-based Risk Modeling</h3>
-          <p class="project-meta">Graph representation / Coordinate-based learning</p>
-          <p>
-            Investigated machine learning models trained on joint coordinate
-            representations to estimate fall risk. Focused on representation quality,
-            generalization, and the limitations of static pose-based prediction.
-          </p>
-        </div>
+    <!-- 모바일 메뉴 동작을 위한 간단한 자바스크립트 -->
+    <script>
+        const btn = document.getElementById('mobile-menu-btn');
+        const sidebar = document.getElementById('sidebar');
 
-        <div class="project-item">
-          <h3>LLM-based Healthcare Documentation Support</h3>
-          <p class="project-meta">LLM / Structured event generation / Clinical workflow</p>
-          <p>
-            Explored the use of large language models for converting structured
-            patient-state information into natural clinical log-style text, with an emphasis
-            on reliability, validation, and safe generation.
-          </p>
-        </div>
-      </section>
-
-      <section id="publications" class="content-section">
-        <h2>Publications</h2>
-
-        <div class="publication-item">
-          <h3>Fall-from-Bed Risk Prediction from Static Initial Posture</h3>
-          <p>MDPI Sensors (Under Review)</p>
-        </div>
-      </section>
-
-      <section id="contact" class="content-section">
-        <h2>Contact</h2>
-        <p>Email: <a href="mailto:evejaeyong@kw.ac.kr">evejaeyong@kw.ac.kr</a></p>
-        <p>GitHub: <a href="https://github.com/evejaeyong" target="_blank">github.com/evejaeyong</a></p>
-      </section>
-    </section>
-  </main>
+        btn.addEventListener('click', () => {
+            sidebar.classList.toggle('hidden');
+            sidebar.classList.toggle('absolute');
+            sidebar.classList.toggle('w-full');
+        });
+    </script>
 </body>
 </html>
