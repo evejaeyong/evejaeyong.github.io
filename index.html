@@ -67,9 +67,10 @@
     <aside id="sidebar" class="w-full md:w-72 lg:w-80 bg-brand-900 text-white flex-shrink-0 hidden md:flex flex-col shadow-2xl z-10 sticky top-0 md:h-screen overflow-y-auto transition-all duration-300">
         <div class="p-8 flex flex-col items-center border-b border-brand-800">
             <!-- 프로필 이미지 -->
-            <div class="w-32 h-32 rounded-full overflow-hidden border-4 border-brand-500 mb-4 shadow-lg bg-white">
+            <div class="w-40 h-40 rounded-full overflow-hidden border-4 border-brand-500 mb-4 shadow-lg bg-white flex items-center justify-center">
                 <!-- 실제 사용 시 src를 본인 사진으로 변경하세요 -->
-                <img src="fig/jaeyong.jpg" alt="Profile Picture" class="w-full h-full object-cover">
+                <!-- object-cover를 object-contain으로 변경하여 사진이 잘리지 않도록 수정했습니다. -->
+                <img src="fig/jaeyong.jpg" alt="Profile Picture" class="w-full h-full object-contain">
             </div>
             <h1 class="text-2xl font-bold mb-1 tracking-wide">Jaeyong Kim</h1>
             <p class="text-brand-100 text-sm mb-4 text-center">M.S. Student</p>
