@@ -68,8 +68,6 @@
         <div class="p-8 flex flex-col items-center border-b border-brand-800">
             <!-- 프로필 이미지 -->
             <div class="w-40 h-40 rounded-full overflow-hidden border-4 border-brand-500 mb-4 shadow-lg bg-white flex items-center justify-center">
-                <!-- 실제 사용 시 src를 본인 사진으로 변경하세요 -->
-                <!-- object-cover로 빈틈없이 채우고, object-top으로 머리가 잘리지 않게 위쪽을 고정합니다. -->
                 <img src="fig/jaeyong.jpg" alt="Profile Picture" class="w-full h-full object-cover object-top">
             </div>
             <h1 class="text-2xl font-bold mb-1 tracking-wide">Jaeyong Kim</h1>
@@ -89,20 +87,20 @@
             <div class="flex gap-4 text-brand-100">
                 <a href="mailto:evejaeyong@kw.ac.kr" class="hover:text-white transition-colors" title="Email"><i class="fas fa-envelope text-xl"></i></a>
                 <a href="https://scholar.google.com/citations?user=lHAssR4AAAAJ&hl=ko" class="hover:text-white transition-colors" title="Google Scholar"><i class="fas fa-graduation-cap text-xl"></i></a>
-                <a href="https://github.com/evejaeyong" target="_blank" class="hover:text-white transition-colors" title="GitHub"><i class="fab fa-github text-xl"></i></a>
+                <a href="github.com/evejaeyong" class="hover:text-white transition-colors" title="GitHub"><i class="fab fa-github text-xl"></i></a>
                 <a href="#" class="hover:text-white transition-colors" title="LinkedIn"><i class="fab fa-linkedin text-xl"></i></a>
             </div>
         </div>
 
         <!-- 네비게이션 메뉴 -->
         <nav class="flex-1 py-6 flex flex-col">
-            <a href="index.html" class="nav-link px-8 py-3 text-brand-100 hover:text-white font-medium flex items-center">
+            <a href="index.html" class="nav-link active px-8 py-3 text-white font-medium flex items-center">
                 <i class="fas fa-user w-6"></i> About Me
             </a>
-            <a href="publications.html" class="nav-link active px-8 py-3 text-white font-medium flex items-center">
+            <a href="#publications" class="nav-link px-8 py-3 text-brand-100 hover:text-white font-medium flex items-center">
                 <i class="fas fa-book w-6"></i> Publications
             </a>
-            <a href="projects.html" class="nav-link px-8 py-3 text-brand-100 hover:text-white font-medium flex items-center">
+            <a href="#projects" class="nav-link px-8 py-3 text-brand-100 hover:text-white font-medium flex items-center">
                 <i class="fas fa-code w-6"></i> Projects
             </a>
             <a href="#cv" class="nav-link px-8 py-3 text-brand-100 hover:text-white font-medium flex items-center">
@@ -122,7 +120,7 @@
                 </h2>
                 <div class="prose prose-lg text-gray-600 leading-relaxed">
                     <p class="mb-4">
-                        Hello! I am <strong>Jaeyong Kim</strong>, a Master's student in the Bio Computing and Machine Learning Lab (BCML Lab) at the Department of Computer engineering, Kwangwoon University. 
+                        I am <strong>Jaeyong Kim</strong>, a Master's student in the Bio Computing and Machine Learning Lab (BCML Lab) at the Department of Computer engineering, Kwangwoon University. 
                         Under the supervision of <a href="https://bcml.kw.ac.kr/" class="text-brand-600 hover:underline">Prof. Park</a>, my research focuses on ~~~.
                     </p>
                     <p class="mb-4">
@@ -176,7 +174,7 @@
                     <div class="relative pl-8">
                         <div class="absolute w-4 h-4 bg-brand-500 rounded-full -left-[8.5px] top-1.5 border-4 border-white shadow"></div>
                         <h3 class="text-lg font-bold text-gray-800">M.S. in Computer Engineering</h3>
-                        <p class="text-brand-600 font-medium text-sm mb-2">Kwangwoon University</p>
+                        <p class="text-brand-600 font-medium text-sm mb-2">KwangwoonUniversity</p>
                         <p class="text-sm text-gray-500 mb-2"><i class="far fa-calendar-alt mr-1"></i> Sep 2025 - Present</p>
                         <ul class="list-disc list-inside text-gray-600 text-sm space-y-1">
                             <li>Advisor: Prof. Park (BCML Lab)</li>
@@ -200,6 +198,27 @@
                 </div>
             </section>
             
+            <!-- Leadership & Activities 섹션 추가 -->
+            <section id="activities" class="mb-8">
+                <h2 class="text-2xl font-bold text-brand-900 mb-6 pb-2 border-b border-brand-100">
+                    Leadership & Activities
+                </h2>
+                <div class="space-y-6">
+                    <!-- 활동 아이템 1 (학생회장) -->
+                    <div class="flex flex-col md:flex-row gap-4 md:gap-6 group">
+                        <div class="md:w-32 flex-shrink-0 pt-1">
+                            <span class="text-sm font-bold text-brand-600">2024.01 - 2024.12</span> <!-- 활동 연도로 수정하세요 -->
+                        </div>
+                        <div>
+                            <h4 class="text-lg font-bold text-gray-900 group-hover:text-brand-600 transition-colors">President of the Student Council</h4>
+                            <p class="text-gray-600 mt-1 font-medium">
+                                Department of Computer Information Engineering, Kwangwoon University
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
             <!-- 푸터 -->
             <footer class="mt-20 border-t border-gray-100 pt-8 text-center text-sm text-gray-400">
                 <p>&copy; 2026 Jaeyong Kim. All rights reserved.</p>
