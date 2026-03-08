@@ -47,6 +47,19 @@
             border-left-color: #60a5fa;
             padding-left: 1.5rem;
         }
+        
+        /* 아코디언 부드러운 전환을 위한 클래스 */
+        .project-content {
+            display: grid;
+            grid-template-rows: 0fr;
+            transition: grid-template-rows 0.3s ease-out;
+        }
+        .project-content.open {
+            grid-template-rows: 1fr;
+        }
+        .project-content > div {
+            overflow: hidden;
+        }
     </style>
 </head>
 <body class="bg-brand-50 text-gray-800 flex flex-col md:flex-row min-h-screen">
@@ -94,7 +107,6 @@
             <a href="publications.html" class="nav-link px-8 py-3 text-brand-100 hover:text-white font-medium flex items-center">
                 <i class="fas fa-book w-6"></i> Publications
             </a>
-            <!-- 여기가 active 상태로 변경되었습니다 -->
             <a href="projects.html" class="nav-link active px-8 py-3 text-white font-medium flex items-center">
                 <i class="fas fa-code w-6"></i> Projects
             </a>
@@ -112,42 +124,293 @@
                 <i class="fas fa-laptop-code mr-3 text-brand-500"></i> Projects
             </h2>
 
-            <div class="space-y-12">
+            <div class="space-y-6">
                 
-                <!-- 프로젝트 1 -->
-                <article class="relative pl-6 md:pl-0 border-l-4 md:border-l-0 border-brand-200">
-                    <div class="md:flex md:justify-between md:items-baseline mb-2">
-                        <h3 class="text-2xl font-bold text-brand-900">Video-Audio Multimodal Infant Cry Detection System</h3>
-                        <span class="text-sm font-semibold text-brand-600 block mt-1 md:mt-0">Mar 2025 - Nov 2025</span>
-                    </div>
-                    
-                    <p class="text-sm text-gray-500 italic mb-4">
-                        <i class="fas fa-building mr-1"></i> Industry Collaboration with EMMA Healthcare Corporation | Graduation Project
-                    </p>
-                    
-                    <p class="text-gray-600 leading-relaxed mb-4">
-                        dsgsklgjfsfjdsjfisdjfsdf
-                    </p>
-                    
-                    <!-- 기술 스택 -->
-                    <div class="flex flex-wrap gap-2 mb-4">
-                        <span class="px-3 py-1 bg-gray-100 text-gray-700 text-xs font-semibold rounded-full border border-gray-200">Python</span>
-                        <span class="px-3 py-1 bg-gray-100 text-gray-700 text-xs font-semibold rounded-full border border-gray-200">PyTorch</span>
-                        <span class="px-3 py-1 bg-gray-100 text-gray-700 text-xs font-semibold rounded-full border border-gray-200">Multimodal AI</span>
-                        <span class="px-3 py-1 bg-gray-100 text-gray-700 text-xs font-semibold rounded-full border border-gray-200">OpenCV</span>
-                    </div>
-                    
-                    <!-- 링크 버튼 -->
-                    <div class="flex gap-3">
-                        <a href="#" class="text-brand-600 hover:text-brand-800 text-sm font-medium transition-colors">
-                            <i class="fab fa-github mr-1"></i> GitHub Repository
-                        </a>
-                    </div>
-                </article>
+                <!-- 프로젝트 블럭 1: ICU Part 2 (Simulation) -->
+                <div class="border border-brand-200 rounded-xl bg-white shadow-sm transition-shadow hover:shadow-md">
+                    <button class="w-full text-left px-6 py-5 flex justify-between items-center focus:outline-none hover:bg-brand-50 transition-colors rounded-xl" onclick="toggleProject('proj_icu2')">
+                        <div>
+                            <span class="text-xs font-bold text-brand-600 tracking-wider uppercase mb-1 block">Vision-Based AI System for Smart ICU Bed</span>
+                            <h3 class="text-xl font-bold text-brand-900">Simulation-Based Fall Risk Prediction for Smart ICU Beds</h3>
+                            <p class="text-sm text-gray-500 mt-1">
+                                <i class="fas fa-landmark mr-1"></i> National R&D Project | Jan 2026 - Present
+                            </p>
+                        </div>
+                        <i id="icon-proj_icu2" class="fas fa-chevron-down text-gray-400 transition-transform duration-300"></i>
+                    </button>
 
-                <hr class="border-gray-100">
+                    <div id="content-proj_icu2" class="project-content border-brand-100 border-t-0">
+                        <div>
+                            <div class="px-6 pb-6 pt-2">
+                                <hr class="border-gray-100 mb-6">
+                                
+                                <div class="flex flex-wrap gap-2 mb-8">
+                                    <span class="px-3 py-1 bg-gray-100 text-gray-700 text-xs font-semibold rounded-full border border-gray-200">MuJoCo</span>
+                                    <span class="px-3 py-1 bg-gray-100 text-gray-700 text-xs font-semibold rounded-full border border-gray-200">Sim2real</span>
+                                    <span class="px-3 py-1 bg-gray-100 text-gray-700 text-xs font-semibold rounded-full border border-gray-200">PyTorch</span>
+                                    <span class="px-3 py-1 bg-gray-100 text-gray-700 text-xs font-semibold rounded-full border border-gray-200">Markov Reward Process</span>
+                                </div>
+                                
+                                <div class="space-y-6">
+                                    <div>
+                                        <h4 class="text-lg font-bold text-brand-800 mb-2 flex items-center">
+                                            <i class="fas fa-search mr-2 text-brand-500 text-base"></i> Overview
+                                        </h4>
+                                        <p class="text-gray-600 text-sm leading-relaxed mb-2">
+                                            Developed a simulation-driven machine learning model for predicting fall-from-bed risk from a single static patient posture as part of a smart ICU bed system.
+                                        </p>
+                                        <p class="text-gray-600 text-sm leading-relaxed mb-2">
+                                            Since real-world fall events are rare and ethically difficult to collect at scale, I built a physics-based human–bed simulation environment using MuJoCo to generate large-scale labeled training data. The simulator samples diverse initial in-bed postures and rolls out uncontrolled physical dynamics to determine whether a fall occurs.
+                                        </p>
+                                        <p class="text-gray-600 text-sm leading-relaxed mb-2">
+                                            Each simulated episode is converted into a 13-keypoint 2D skeleton representation, and fall risk is formulated as a continuous regression problem based on discounted time-to-fall. This formulation allows the model to estimate a risk score from a single static posture without requiring temporal motion sequences.
+                                        </p>
+                                        <p class="text-gray-600 text-sm leading-relaxed">
+                                            From a reinforcement learning perspective, the model can be interpreted as learning a value function that predicts the expected discounted return of a fall event under a fixed no-control policy, enabling per-frame fall risk estimation in bedside monitoring systems.
+                                        </p>
+                                    </div>
+                                    <div>
+                                        <h4 class="text-lg font-bold text-brand-800 mb-2 flex items-center">
+                                            <i class="fas fa-chart-line mr-2 text-brand-500 text-base"></i> Result
+                                        </h4>
+                                        <p class="text-gray-600 text-sm leading-relaxed mb-2">
+                                            The proposed simulation-based approach demonstrates that meaningful fall-risk signals can be inferred from a single static in-bed posture without requiring temporal motion sequences. Through large-scale physics-based simulation and supervised learning, the model successfully learned posture-dependent risk patterns and produced stable fall-risk estimates across diverse patient configurations.
+                                        </p>
+                                        <p class="text-gray-600 text-sm leading-relaxed">
+                                            The study shows the feasibility of using synthetic simulation data to train predictive safety models in healthcare scenarios where collecting real-world fall data is difficult due to safety and ethical constraints. These results suggest that simulation-driven learning could serve as a practical foundation for developing proactive bedside monitoring systems capable of estimating fall risk before hazardous events occur.
+                                        </p>
+                                    </div>
+                                    <div>
+                                        <h4 class="text-lg font-bold text-brand-800 mb-2 flex items-center">
+                                            <i class="fas fa-user-check mr-2 text-brand-500 text-base"></i> My Role
+                                        </h4>
+                                        <ul class="list-disc list-inside text-gray-600 text-sm space-y-1.5 ml-1">
+                                            <li>Designed and implemented the physics-based bed–human simulation pipeline using MuJoCo.</li>
+                                            <li>Developed the data generation and labeling framework for large-scale fall-risk datasets.</li>
+                                            <li>Engineered the skeleton feature extraction and normalization pipeline from simulator states.</li>
+                                            <li>Formulated fall risk prediction as a continuous value prediction problem based on discounted time-to-fall.</li>
+                                            <li>Conducted experiments on dataset construction, sampling strategies, and scaling behavior to analyze model generalization.</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
 
-                
+                <!-- 프로젝트 블럭 2: ICU Part 1 (Monitoring) -->
+                <div class="border border-brand-200 rounded-xl bg-white shadow-sm transition-shadow hover:shadow-md">
+                    <button class="w-full text-left px-6 py-5 flex justify-between items-center focus:outline-none hover:bg-brand-50 transition-colors rounded-xl" onclick="toggleProject('proj_icu1')">
+                        <div>
+                            <span class="text-xs font-bold text-brand-600 tracking-wider uppercase mb-1 block">Vision-Based AI System for Smart ICU Bed</span>
+                            <h3 class="text-xl font-bold text-brand-900">Privacy-Preserving Vision-Based Patient Monitoring for Smart ICU Beds</h3>
+                            <p class="text-sm text-gray-500 mt-1">
+                                <i class="fas fa-landmark mr-1"></i> National R&D Project | May 2025 - Dec 2025
+                            </p>
+                        </div>
+                        <i id="icon-proj_icu1" class="fas fa-chevron-down text-gray-400 transition-transform duration-300"></i>
+                    </button>
+
+                    <div id="content-proj_icu1" class="project-content border-brand-100 border-t-0">
+                        <div>
+                            <div class="px-6 pb-6 pt-2">
+                                <hr class="border-gray-100 mb-6">
+                                
+                                <div class="flex flex-wrap gap-2 mb-8">
+                                    <span class="px-3 py-1 bg-gray-100 text-gray-700 text-xs font-semibold rounded-full border border-gray-200">Computer Vision</span>
+                                    <span class="px-3 py-1 bg-gray-100 text-gray-700 text-xs font-semibold rounded-full border border-gray-200">Multitask Model</span>
+                                    <span class="px-3 py-1 bg-gray-100 text-gray-700 text-xs font-semibold rounded-full border border-gray-200">PyTorch</span>
+                                    <span class="px-3 py-1 bg-gray-100 text-gray-700 text-xs font-semibold rounded-full border border-gray-200">Dynamic Vision Sensor</span>
+                                </div>
+                                
+                                <div class="space-y-6">
+                                    <div>
+                                        <h4 class="text-lg font-bold text-brand-800 mb-2 flex items-center">
+                                            <i class="fas fa-search mr-2 text-brand-500 text-base"></i> Overview
+                                        </h4>
+                                        <p class="text-gray-600 text-sm leading-relaxed mb-2">
+                                            Developed a vision-based patient monitoring model for a smart ICU bed system that automatically responds to patient status detected from visual sensor inputs. The overall goal of the project is to improve patient safety by enabling the bed to react intelligently to high-risk situations, such as prolonged static postures related to pressure ulcer risk.
+                                        </p>
+                                        <p class="text-gray-600 text-sm leading-relaxed mb-2">
+                                            To support real-world deployment in hospital environments, I adopted an RGB–DVS multimodal approach. The DVS sensor was introduced as a privacy-preserving modality because it captures motion events without exposing detailed identifiable appearance information. In addition, I designed a multitask learning model that simultaneously performs RGB anonymization and patient posture classification, allowing the system to preserve visual privacy while maintaining monitoring performance.
+                                        </p>
+                                        <p class="text-gray-600 text-sm leading-relaxed">
+                                            The developed model is intended to serve as a perception module for the smart bed, providing reliable posture-related signals that can later be used to trigger bed-level actions such as air mattress adjustment or patient repositioning.
+                                        </p>
+                                    </div>
+                                    <div>
+                                        <h4 class="text-lg font-bold text-brand-800 mb-2 flex items-center">
+                                            <i class="fas fa-chart-line mr-2 text-brand-500 text-base"></i> Result
+                                        </h4>
+                                        <p class="text-gray-600 text-sm leading-relaxed mb-2">
+                                            Built a privacy-aware patient monitoring pipeline using RGB and DVS sensors for smart ICU bed applications. The proposed model demonstrated the feasibility of combining posture classification and visual anonymization within a unified framework, while also supporting practical deployment in medical environments where privacy is critical.
+                                        </p>
+                                        <p class="text-gray-600 text-sm leading-relaxed">
+                                            In addition to model development, the system was prepared for embedded deployment, enabling real-time inference on an embedded board for interaction with the smart bed platform. This established the technical foundation for integrating AI-based patient monitoring with bed control in future ICU-bed applications.
+                                        </p>
+                                    </div>
+                                    <div>
+                                        <h4 class="text-lg font-bold text-brand-800 mb-2 flex items-center">
+                                            <i class="fas fa-user-check mr-2 text-brand-500 text-base"></i> My Role
+                                        </h4>
+                                        <ul class="list-disc list-inside text-gray-600 text-sm space-y-1.5 ml-1">
+                                            <li>Designed and implemented the RGB–DVS-based patient posture classification model.</li>
+                                            <li>Developed a multitask learning architecture for simultaneous RGB anonymization and posture classification.</li>
+                                            <li>Processed and synchronized multimodal sensor data from RGB and DVS cameras.</li>
+                                            <li>Optimized and deployed the model on an embedded board for real-time inference.</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 프로젝트 블럭 3: Infant Cry Detection -->
+                <div class="border border-brand-200 rounded-xl bg-white shadow-sm transition-shadow hover:shadow-md">
+                    <button class="w-full text-left px-6 py-5 flex justify-between items-center focus:outline-none hover:bg-brand-50 transition-colors rounded-xl" onclick="toggleProject('proj1')">
+                        <div>
+                            <h3 class="text-xl font-bold text-brand-900">Video-Audio Multimodal Infant Cry Detection for Smart Baby Bed</h3>
+                            <p class="text-sm text-gray-500 mt-1">
+                                <i class="fas fa-building mr-1"></i> Industry Collaboration | Mar 2025 - Nov 2025
+                            </p>
+                        </div>
+                        <i id="icon-proj1" class="fas fa-chevron-down text-gray-400 transition-transform duration-300"></i>
+                    </button>
+
+                    <div id="content-proj1" class="project-content border-brand-100 border-t-0">
+                        <div>
+                            <div class="px-6 pb-6 pt-2">
+                                <hr class="border-gray-100 mb-6">
+                                
+                                <div class="flex flex-wrap gap-2 mb-8">
+                                    <span class="px-3 py-1 bg-brand-50 text-brand-600 text-xs font-bold rounded-full border border-brand-200"><i class="fas fa-graduation-cap mr-1"></i>Graduation Project</span>
+                                    <span class="px-3 py-1 bg-gray-100 text-gray-700 text-xs font-semibold rounded-full border border-gray-200">Python</span>
+                                    <span class="px-3 py-1 bg-gray-100 text-gray-700 text-xs font-semibold rounded-full border border-gray-200">jax</span>
+                                    <span class="px-3 py-1 bg-gray-100 text-gray-700 text-xs font-semibold rounded-full border border-gray-200">Multimodal</span>
+                                    <span class="px-3 py-1 bg-gray-100 text-gray-700 text-xs font-semibold rounded-full border border-gray-200">ViT</span>
+                                </div>
+                                
+                                <div class="space-y-6">
+                                    <div>
+                                        <h4 class="text-lg font-bold text-brand-800 mb-2 flex items-center">
+                                            <i class="fas fa-search mr-2 text-brand-500 text-base"></i> Overview
+                                        </h4>
+                                        <p class="text-gray-600 text-sm leading-relaxed mb-2">
+                                            Developed an audio–visual multimodal cry detection model for a smart infant bed system designed to automatically respond to infant states (e.g., crying, environmental adjustment).
+                                        </p>
+                                        <p class="text-gray-600 text-sm leading-relaxed">
+                                            The project addresses the limitation of audio-only cry detection systems, which are highly sensitive to environmental noise and often produce false alarms. To improve robustness, a multimodal architecture was designed by combining a pretrained Vision Transformer (ViT)-based video encoder with an audio feature extraction model. By leveraging both facial expressions and body movements from video alongside acoustic features from crying sounds, the system performs binary classification of infant crying vs. non-crying states with improved reliability in real-world environments.
+                                        </p>
+                                    </div>
+
+                                    <div>
+                                        <h4 class="text-lg font-bold text-brand-800 mb-2 flex items-center">
+                                            <i class="fas fa-chart-line mr-2 text-brand-500 text-base"></i> Result
+                                        </h4>
+                                        <p class="text-gray-600 text-sm leading-relaxed">
+                                            The multimodal fusion approach significantly reduced false positives caused by external noise compared to audio-only detection systems. By integrating visual context with acoustic signals, the model achieved more stable cry detection performance in noisy environments. The developed model demonstrated improved robustness for deployment in smart infant care devices, enabling more reliable automated responses within the smart baby bed system.
+                                        </p>
+                                    </div>
+
+                                    <div>
+                                        <h4 class="text-lg font-bold text-brand-800 mb-2 flex items-center">
+                                            <i class="fas fa-user-check mr-2 text-brand-500 text-base"></i> My Role
+                                        </h4>
+                                        <ul class="list-disc list-inside text-gray-600 text-sm space-y-1.5 ml-1">
+                                            <li>Designed and implemented the audio–visual multimodal architecture integrating a pretrained ViT-based video encoder with an audio feature model using jax.</li>
+                                            <li>Processed and synchronized video and audio datasets to build a multimodal training pipeline.</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                
+                                <div class="mt-8 pt-4 border-t border-gray-100 flex gap-4">
+                                    <a href="https://www.emmahc.com/bebelucy" target="_blank" class="text-brand-600 hover:text-brand-800 text-sm font-medium transition-colors">
+                                        <i class="fas fa-external-link-alt mr-1"></i> Official Product Page
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 프로젝트 블럭 4: Chatbot -->
+                <div class="border border-brand-200 rounded-xl bg-white shadow-sm transition-shadow hover:shadow-md">
+                    <button class="w-full text-left px-6 py-5 flex justify-between items-center focus:outline-none hover:bg-brand-50 transition-colors rounded-xl" onclick="toggleProject('proj3')">
+                        <div>
+                            <h3 class="text-xl font-bold text-brand-900">LLM-based Voice Depression Screening Chatbot</h3>
+                            <p class="text-sm text-gray-500 mt-1">
+                                <i class="fas fa-building mr-1"></i> Industry Collaboration | Aug 2024 - Dec 2024
+                            </p>
+                        </div>
+                        <i id="icon-proj3" class="fas fa-chevron-down text-gray-400 transition-transform duration-300"></i>
+                    </button>
+
+                    <div id="content-proj3" class="project-content border-brand-100 border-t-0">
+                        <div>
+                            <div class="px-6 pb-6 pt-2">
+                                <hr class="border-gray-100 mb-6">
+                                
+                                <!-- 기술 스택 -->
+                                <div class="flex flex-wrap gap-2 mb-8">
+                                    <span class="px-3 py-1 bg-gray-100 text-gray-700 text-xs font-semibold rounded-full border border-gray-200">LLM</span>
+                                    <span class="px-3 py-1 bg-gray-100 text-gray-700 text-xs font-semibold rounded-full border border-gray-200">Prompt Engineering</span>
+                                    <span class="px-3 py-1 bg-gray-100 text-gray-700 text-xs font-semibold rounded-full border border-gray-200">Socket Communication</span>
+                                    <span class="px-3 py-1 bg-gray-100 text-gray-700 text-xs font-semibold rounded-full border border-gray-200">Ollama</span>
+                                </div>
+                                
+                                <div class="space-y-6">
+                                    <div>
+                                        <h4 class="text-lg font-bold text-brand-800 mb-2 flex items-center">
+                                            <i class="fas fa-search mr-2 text-brand-500 text-base"></i> Overview
+                                        </h4>
+                                        <p class="text-gray-600 text-sm leading-relaxed mb-2">
+                                            Developed a voice-interactive chatbot for depression screening based on the PHQ-9 questionnaire. The system aims to simulate a natural conversational interaction while conducting structured mental health assessments.
+                                        </p>
+                                        <p class="text-gray-600 text-sm leading-relaxed mb-2">
+                                            To achieve this, a Large Language Model (LLM) was prompt-tuned to follow a rule-based diagnostic workflow derived from the PHQ-9 clinical questionnaire. The chatbot guides users through nine screening questions in a conversational manner while maintaining the predefined diagnostic logic.
+                                        </p>
+                                        <p class="text-gray-600 text-sm leading-relaxed">
+                                            The system integrates speech-to-text (STT) and text-to-speech (TTS) components to enable natural voice interaction. Due to the computational requirements of the LLM, the architecture separates the client and server: the client extracts speech input and sends it to the server via Socket communication, where the LLM generates responses using Ollama. The generated responses are then returned to the client and converted to speech for playback.
+                                        </p>
+                                    </div>
+
+                                    <div>
+                                        <h4 class="text-lg font-bold text-brand-800 mb-2 flex items-center">
+                                            <i class="fas fa-chart-line mr-2 text-brand-500 text-base"></i> Result
+                                        </h4>
+                                        <p class="text-gray-600 text-sm leading-relaxed mb-2">
+                                            The developed system successfully demonstrates an end-to-end voice-based depression screening pipeline, combining speech processing, LLM-based dialogue generation, and structured diagnostic scoring.
+                                        </p>
+                                        <p class="text-gray-600 text-sm leading-relaxed">
+                                            The chatbot conducts the full PHQ-9 assessment through conversational interaction and automatically calculates the final score once all nine questions are completed, providing a simple demonstration of how LLM-based conversational systems can support structured mental health screening tasks.
+                                        </p>
+                                    </div>
+
+                                    <div>
+                                        <h4 class="text-lg font-bold text-brand-800 mb-2 flex items-center">
+                                            <i class="fas fa-user-check mr-2 text-brand-500 text-base"></i> My Role
+                                        </h4>
+                                        <ul class="list-disc list-inside text-gray-600 text-sm space-y-1.5 ml-1">
+                                            <li>Designed and implemented the entire system architecture, including client–server communication and voice interaction pipeline.</li>
+                                            <li>Prompt-engineered the LLM to follow PHQ-9 diagnostic rules while maintaining conversational dialogue with users.</li>
+                                            <li>Implemented Socket-based communication between the local client and LLM inference server.</li>
+                                            <li>Integrated Speech-to-Text (STT) and Text-to-Speech (TTS) modules to enable real-time voice interaction.</li>
+                                            <li>Deployed and managed the LLM using Ollama to support local inference of large models.</li>
+                                            <li>Implemented the PHQ-9 scoring logic to automatically compute and reveal the screening result after the questionnaire is completed.</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                
+                                <div class="mt-8 pt-4 border-t border-gray-100 flex gap-4">
+                                    <a href="https://github.com/evejaeyong/Depression_Diagnosis_Chatbot" target="_blank" class="text-brand-600 hover:text-brand-800 text-sm font-medium transition-colors">
+                                        <i class="fab fa-github mr-1"></i> GitHub Repository
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
 
             </div>
             
@@ -159,7 +422,9 @@
         </div>
     </main>
 
+    <!-- 아코디언 동작을 위한 자바스크립트 -->
     <script>
+        // 모바일 메뉴 토글
         const btn = document.getElementById('mobile-menu-btn');
         const sidebar = document.getElementById('sidebar');
 
@@ -168,6 +433,23 @@
             sidebar.classList.toggle('absolute');
             sidebar.classList.toggle('w-full');
         });
+
+        // 프로젝트 아코디언 토글 함수
+        function toggleProject(id) {
+            const content = document.getElementById('content-' + id);
+            const icon = document.getElementById('icon-' + id);
+            
+            // 열려있는지 확인
+            if (content.classList.contains('open')) {
+                // 닫기
+                content.classList.remove('open');
+                icon.classList.remove('rotate-180');
+            } else {
+                // 열기
+                content.classList.add('open');
+                icon.classList.add('rotate-180');
+            }
+        }
     </script>
 </body>
 </html>
